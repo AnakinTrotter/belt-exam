@@ -1,0 +1,15 @@
+#page {
+    display: flex;
+}
+
+#register-button {
+    margin-left: 66%;
+}
+
+#login-button {
+    margin-left: 72%;
+}
+
+#login-welcome {
+    margin-left: 1%;
+}

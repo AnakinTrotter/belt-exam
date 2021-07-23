@@ -1,0 +1,20 @@
+#edit {
+    margin-top: 50px;
+    width: 300px;
+}
+
+input {
+    margin: 1px;
+}
+
+#buttons {
+    margin-left: 100px;
+}
+
+input[type=text] {
+    width: 75px;
+}
+
+#nav-elem {
+    margin-left: 300px;
+}

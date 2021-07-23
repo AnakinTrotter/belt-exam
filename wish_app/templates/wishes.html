@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>The Wishing App</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link rel="stylesheet" href="{% static 'wishes.css' %}">
+</head>
+
+<body>
+    <div id="navbar">
+        <h1>Hello {{request.session.fname}}</h1>
+        <div id="nav-elems">
+            <a href="/logout">Logout</a>
+            <a href="/wishes/stats"><input type="button" id="stats" value="View stats"></a>
+            <a href="/wishes/new"><input type="button" value="Make a wish!"></a>
+        </div>
+    </div>
+    <p>Your wish list:</p>
+    <table class="wish-table">
+        <tr>
+            <th>Item</th>
+            <th>Date added</th>
+            <th>Actions</th>
+        </tr>
+        {% for wish in request.session.ungranted %}
+        <tr>
+            <td>{{wish.title}}</td>
+            <td>{{wish.date_added}}</td>
+            <td><a href="/wishes/remove/{{wish.id}}">Remove</a> | <a href="/wishes/edit/{{wish.id}}">Edit</a> | <a
+                    href="/wishes/granted/{{wish.id}}">Granted!</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p>Granted wishes:</p>
+    <table class="wish-table">
+        <tr>
+            <th>Item</th>
+            <th>Wisher</th>
+            <th>Date added</th>
+            <th>Date Granted</th>
+            <th>Likes</th>
+            <th>Actions</th>
+        </tr>
+        {% for wish in request.session.granted %}
+        <tr>
+            <td>{{wish.title}}</td>
+            <td>{{wish.wisher}}</td>
+            <td>{{wish.date_added}}</td>
+            <td>{{wish.date_granted}}</td>
+            <td>{{wish.likes}}</td>
+            <td>
+                {% if wish.can_like %}
+                <a href="/wishes/like/{{wish.id}}">Like</a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>

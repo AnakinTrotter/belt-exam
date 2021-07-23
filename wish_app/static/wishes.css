@@ -1,0 +1,30 @@
+table, th, td {
+    border: 2px solid black;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+table {
+    width: 600px;
+}
+
+td, th {
+    padding: 5px;
+}
+
+#nav-elems {
+    margin-left: 180px;
+}
+
+#stats {
+    background-color: #B4A7D6;
+    margin-right: 10px;
+}
+
+th {
+    background-color: #CCCCCC;
+}
+
+tr:nth-child(even) {
+    background-color: #EEEEEE;
+}
